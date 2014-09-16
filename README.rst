@@ -67,6 +67,16 @@ and ps2pdf. If you use a popular Linux distribution, your package manager
 probably provides all these. If you use an esoteric distribution that nobody has
 heard of, you probably know how to get these for said distribution.
 
+Installation
+============
+
+#. Get odp2pdf:
+
+   ``$ git clone https://github.com/aadithyakv/odp2pdf.git``
+
+#. Put the ``odp2pdf.sh`` script somewhere on your path and make sure you have 
+   execute permissions on it.
+
 Usage
 =====
 
