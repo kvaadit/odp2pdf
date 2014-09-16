@@ -5,58 +5,21 @@ odp2pdf: Convert LibreOffice slides to PDF while preserving animations
 :date: Sep 11, 2014
 
 This is odp2pdf, a simple bash script that converts an odp presentation into PDF
-while preserving animations. Well, fancy transitions in the animations are not
-supported, but the vanilla appear and disappear effects should work.
+while preserving animations. (Well, fancy transitions in the animations are not
+supported, but the vanilla appear and disappear effects should work.).
 
-If you're like me, you use LibreOffice to make presentations. Not necessarily
-because it's the best tool for the job, but because it's (pretty much) the only
-presentation tool available on Linux.
+You give odp2pdf the name of your odp file, and odp2pdf automatically does the 
+following: 
 
-But from time to time, you find that can't work purely in LibreOffice, with an
-ODP version of your slides: you also need a PPT/PDF version.
-
-Much of the time, you're asked for PPT/PDF slides because you're required to
-present from a laptop that someone else provides. This is often the case if the
-presentation is being webcast live to a wider audience. Also sometimes, you are
-just one in a long line of presenters, and there is no time to switch laptops in
-the middle. So you have to use the same laptop as everyone else, and that laptop
-may not have LibreOffice installed. Another situation where PPT/PDF slides come
-in handy is when you need to share your presentation with someone who wants to
-view it on a device/platform where LibreOffice is not available or too much of a
-bother to get working correctly (e.g., on an iPad/iPhone).
-
-"So what's the problem?", I hear you ask. After all, LibreOffice has the ability
-to export to PowerPoint (PPT) and PowerPoint has the ability to import
-LibreOffice (ODP) slides. The problem is that, unfortunately, neither of these
-export/import functions works very well, and neither is likely to ever be able
-to work flawlessly in the future. Why? Because these programs use widely
-different formats, they often come with very different sets of fonts, the
-features available on one are not available on the other, the styles and
-templates available on them are not the same, etc.
-
-So, unless you're willing to spend a lot of time manually tweaking the
-appearance of the PPT exported from LibreOffice or imported by PowerPoint (not
-to mention the headache of keeping the two versions in sync everytime you modify
-either one of them), the only sane solution is to skip PowerPoint altogether and
-use only PDF. LibreOffice's PDF export works much better than its PPT export,
-and life is good.
-
-Until you realize that when LibreOffice converts your slides into PDF, it
-doesn't keep any of your animations. That wonderful slide that starts simple
-and incrementally adds layers of complexity? Forget it, that's just one
-complex mess now. The other slide where elements are disappearing and
-appearing all over the place one on top of another? That's now one ugly page
-where everything is drawn on top of everything else.
-
-So what's the solution? odp2pdf.
-
-What odp2pdf does is so simple that I'm amazed it didn't exist already. Or maybe
-it did, but I just didn't know where to look for it. Anyway, you give this
-script the name of your odp file, and it opens the file in LibreOffice, switches
-to slideshow mode, forces the slideshow to proceed along as though you were
-repeatedly pressing the down arrow key, grabs a screenshot at each turn,
-stitches all these screenshots into a single PDF, and finally compresses the PDF
-so you're not left with a file that's 100s of MB in size.
+#. It opens the file in LibreOffice.
+#. It switches LibreOffice to slideshow mode. 
+#. It forces the slideshow to proceed along as though you were repeatedly 
+   pressing the down arrow key.
+#. At each (animated) turn of the slideshow, it grabs a screenshot of the 
+   slideshow.
+#. It stitches all these screenshots into a single PDF.
+#. Finally, it compresses the PDF so you're not left with a file that's hundreds 
+   of MB in size.
 
 Dependencies
 ============
