@@ -66,7 +66,7 @@ Usage
 +-------------------------------------------------------------+-----------------------------------------------------------------------+
 | ``-l, --libreoffice-launch-interval nseconds``              | Default: 5. This is the interval to wait for LibreOffice to start up. |
 +-------------------------------------------------------------+-----------------------------------------------------------------------+
-| ``-v, --libreoffice-version path/to/libreoffice/binary      | This option lets you choose the version of LibreOffice to use.        |
+| ``-v, --libreoffice-version path/to/libreoffice/binary``    | This option lets you choose the version of LibreOffice to use.        |
 +-------------------------------------------------------------+-----------------------------------------------------------------------+
 | ``-s, --slideshow-launch-interval nseconds``                | Default: 2. This is the interval to wait for the slideshow to start.  |
 +-------------------------------------------------------------+-----------------------------------------------------------------------+
