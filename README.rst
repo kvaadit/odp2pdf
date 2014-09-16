@@ -1,5 +1,5 @@
-``odp2pdf``: Convert LibreOffice slides to PDF while preserving animations
-##########################################################################
+Convert LibreOffice slides to PDF while preserving animations
+#############################################################
 
 :author: "Aadithya V. Karthik" <aadithya@berkeley.edu>
 :date: Sep 11, 2014
