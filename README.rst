@@ -70,7 +70,7 @@ heard of, you probably know how to get these for said distribution.
 Usage
 =====
 
-    $ ./odp2pdf.sh [options] /path/to/input/odp
+    ``$ ./odp2pdf.sh [options] /path/to/input/odp``
 
 Options
 =======
@@ -120,16 +120,16 @@ Examples
 
 #. Convert test.odp into test.pdf:
 
-       $ ./odp2pdf.sh test.odp
+       ``$ ./odp2pdf.sh test.odp``
 
 #. Convert test.odp into test_1024x768.pdf, grabbing 1024x768 screenshots:
 
-       $ ./odp2pdf.sh -r 1024x768 -o test_1024x768.pdf test.odp
+       ``$ ./odp2pdf.sh -r 1024x768 -o test_1024x768.pdf test.odp``
 
 #. Convert test.odp into test.pdf, but wait 2s between taking successive 
    screenshots instead of the customary 1s:
 
-       $ ./odp2pdf.sh -i 2 test.odp
+       ``$ ./odp2pdf.sh -i 2 test.odp``
 
 
 Limitations
