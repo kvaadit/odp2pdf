@@ -1,11 +1,11 @@
-Convert LibreOffice slides to PDF while preserving animations
-#############################################################
+Convert LibreOffice slides to PDF without losing animations
+###########################################################
 
 :author: "Aadithya V. Karthik" <aadithya@berkeley.edu>
 :date: Sep 11, 2014
 
 This is ``odp2pdf``, a simple bash script that converts an odp presentation into
-PDF while preserving animations. (Well, fancy transitions in the animations are
+PDF without losing animations. (Well, fancy transitions in the animations are
 not supported, but the vanilla appear and disappear effects should work.).
 
 You give ``odp2pdf`` the name of your odp file, and ``odp2pdf`` automatically
