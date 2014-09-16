@@ -1,15 +1,15 @@
-odp2pdf: Convert LibreOffice slides to PDF while preserving animations
-######################################################################
+``odp2pdf``: Convert LibreOffice slides to PDF while preserving animations
+##########################################################################
 
 :author: "Aadithya V. Karthik" <aadithya@berkeley.edu>
 :date: Sep 11, 2014
 
-This is odp2pdf, a simple bash script that converts an odp presentation into PDF
-while preserving animations. (Well, fancy transitions in the animations are not
-supported, but the vanilla appear and disappear effects should work.).
+This is ``odp2pdf``, a simple bash script that converts an odp presentation into
+PDF while preserving animations. (Well, fancy transitions in the animations are
+not supported, but the vanilla appear and disappear effects should work.).
 
-You give odp2pdf the name of your odp file, and odp2pdf automatically does the 
-following: 
+You give ``odp2pdf`` the name of your odp file, and ``odp2pdf`` automatically
+does the following: 
 
 #. It opens the file in LibreOffice.
 #. It switches LibreOffice to slideshow mode. 
@@ -24,16 +24,17 @@ following:
 Dependencies
 ============
 
-In addition to standard things like mv, cp, awk, grep, etc., this script needs
-xrandr, xwininfo, xwd, imagemagick's convert utility, xdotool, pdftk, pdftops,
-and ps2pdf. If you use a popular Linux distribution, your package manager
-probably provides all these. If you use an esoteric distribution that nobody has
-heard of, you probably know how to get these for said distribution.
+In addition to standard things like ``mv``, ``cp``, ``awk``, ``grep``, etc.,
+this script needs ``xrandr``, ``xwininfo``, ``xwd``, imagemagick's ``convert``
+utility, ``xdotool``, ``pdftk``, ``pdftops``, and ``ps2pdf``. If you use a
+popular Linux distribution, your package manager probably provides all these. If
+you use an esoteric distribution that nobody has heard of, you probably know how
+to get these for said distribution.
 
 Installation
 ============
 
-#. Get odp2pdf:
+#. Get ``odp2pdf``:
 
    ``$ git clone https://github.com/aadithyakv/odp2pdf.git``
 
@@ -52,11 +53,11 @@ Usage
 |                                                | saved in the same directory as the input ODP, and has the same        |
 |                                                | basename as the input ODP.                                            |
 +------------------------------------------------+-----------------------------------------------------------------------+
-| ``-r, --resolution widthxheight``              | If this option is present, odp2pdf first changes the resolution of    |
-|                                                | your display to widthxheight, and then opens LibreOffice to grab the  |
-|                                                | screenshots (so that the screenshots are all of size widthxheight).   |
-|                                                | At the end, odp2pdf changes back your display's resolution to         |
-|                                                | whatever it was initially.                                            |
+| ``-r, --resolution widthxheight``              | If this option is present, ``odp2pdf`` first changes the resolution   |
+|                                                | of your display to widthxheight, and then opens LibreOffice to grab   |
+|                                                | the screenshots (so that the screenshots are all of size              |
+|                                                | ``widthxheight``). At the end, ``odp2pdf`` changes back your          |
+|                                                | display's resolution to whatever it was initially.                    |
 +------------------------------------------------+-----------------------------------------------------------------------+
 | ``-i, --interval nseconds``                    | Default: 1. This is the interval to wait between taking successive    |
 |                                                | screenshots (or successive presses of the Down arrow key). Sometimes, |
@@ -71,18 +72,18 @@ Usage
 |                                                | By default, the PDF is compressed. If you use this option, be         |
 |                                                | prepared to get PDFs with very large file size.                       |
 +------------------------------------------------+-----------------------------------------------------------------------+
-| ``-f, --offset noffset``                       | Default: 1. odp2pdf grabs screenshots until the LibreOffice slideshow |
-|                                                | ends. The end of the slideshow is detected when there is no longer a  |
-|                                                | fullscreen window associated with LibreOffice. At this time, the      |
-|                                                | collected screenshots are merged. But the last such collected         |
+| ``-f, --offset noffset``                       | Default: 1. ``odp2pdf`` grabs screenshots until the LibreOffice       |
+|                                                | slideshow ends. The end of the slideshow is detected when there is no |
+|                                                | longer a fullscreen window associated with LibreOffice. At this time, |
+|                                                | the collected screenshots are merged. But the last such collected     |
 |                                                | screenshot is usually an image that just says 'Click to end           |
 |                                                | slideshow'. So the last screenshot is ignored. This option lets you   |
 |                                                | specify a different number of screenshots to ignore.                  |
 +------------------------------------------------+-----------------------------------------------------------------------+
-| ``-p, --prompt``                               | If this option is present, odp2pdf prompts you (after grabbing all    |
-|                                                | the screenshots) to enter how many screenshots to merge. You can look |
-|                                                | at the individual PDF files, change them if you like and so on before |
-|                                                | asking odp2pdf to merge them.                                         |
+| ``-p, --prompt``                               | If this option is present, ``odp2pdf`` prompts you (after grabbing    |
+|                                                | all the screenshots) to enter how many screenshots to merge. You can  |
+|                                                | look at the individual PDF files, change them if you like and so on   |
+|                                                | before asking ``odp2pdf`` to merge them.                              |
 +------------------------------------------------+-----------------------------------------------------------------------+
 | ``-h, --help``                                 | Print this usage message and exit.                                    |
 +------------------------------------------------+-----------------------------------------------------------------------+
