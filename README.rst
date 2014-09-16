@@ -24,7 +24,7 @@ does the following:
 Dependencies
 ============
 
-In addition to standard things like ``mv``, ``cp``, ``awk``, ``grep``, etc.,
+In addition to standard things like ``mv``, ``cp``, ``awk``, ``grep``, *etc.*,
 this script needs ``xrandr``, ``xwininfo``, ``xwd``, imagemagick's ``convert``
 utility, ``xdotool``, ``pdftk``, ``pdftops``, and ``ps2pdf``. If you use a
 popular Linux distribution, your package manager probably provides all these. If
