@@ -46,47 +46,49 @@ Usage
 
 ``$ ./odp2pdf.sh [options] /path/to/input/odp``
 
-+------------------------------------------------+-----------------------------------------------------------------------+
-|                    Option                      |                              Description                              |
-+================================================+=======================================================================+
-| ``-o, --output path/to/output/PDF``            | This option specifies the output file. By default, the output PDF is  |
-|                                                | saved in the same directory as the input ODP, and has the same        |
-|                                                | basename as the input ODP.                                            |
-+------------------------------------------------+-----------------------------------------------------------------------+
-| ``-r, --resolution widthxheight``              | If this option is present, ``odp2pdf`` first changes the resolution   |
-|                                                | of your display to widthxheight, and then opens LibreOffice to grab   |
-|                                                | the screenshots (so that the screenshots are all of size              |
-|                                                | ``widthxheight``). At the end, ``odp2pdf`` changes back your          |
-|                                                | display's resolution to whatever it was initially.                    |
-+------------------------------------------------+-----------------------------------------------------------------------+
-| ``-i, --interval nseconds``                    | Default: 1. This is the interval to wait between taking successive    |
-|                                                | screenshots (or successive presses of the Down arrow key). Sometimes, |
-|                                                | LibreOffice takes a while to render your slide, and this option helps |
-|                                                | you accommodate that.                                                 |
-+------------------------------------------------+-----------------------------------------------------------------------+
-| ``-l, --libreoffice-launch-interval nseconds`` | Default: 5. This is the interval to wait for LibreOffice to start up. |
-+------------------------------------------------+-----------------------------------------------------------------------+
-| ``-s, --slideshow-launch-interval nseconds``   | Default: 2. This is the interval to wait for the slideshow to start.  |
-+------------------------------------------------+-----------------------------------------------------------------------+
-| ``-n, --no-compress``                          | If this option is present, the generated PDF is not compressed. Note: |
-|                                                | By default, the PDF is compressed. If you use this option, be         |
-|                                                | prepared to get PDFs with very large file size.                       |
-+------------------------------------------------+-----------------------------------------------------------------------+
-| ``-f, --offset noffset``                       | Default: 1. ``odp2pdf`` grabs screenshots until the LibreOffice       |
-|                                                | slideshow ends. The end of the slideshow is detected when there is no |
-|                                                | longer a fullscreen window associated with LibreOffice. At this time, |
-|                                                | the collected screenshots are merged. But the last such collected     |
-|                                                | screenshot is usually an image that just says 'Click to end           |
-|                                                | slideshow'. So the last screenshot is ignored. This option lets you   |
-|                                                | specify a different number of screenshots to ignore.                  |
-+------------------------------------------------+-----------------------------------------------------------------------+
-| ``-p, --prompt``                               | If this option is present, ``odp2pdf`` prompts you (after grabbing    |
-|                                                | all the screenshots) to enter how many screenshots to merge. You can  |
-|                                                | look at the individual PDF files, change them if you like and so on   |
-|                                                | before asking ``odp2pdf`` to merge them.                              |
-+------------------------------------------------+-----------------------------------------------------------------------+
-| ``-h, --help``                                 | Print this usage message and exit.                                    |
-+------------------------------------------------+-----------------------------------------------------------------------+
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+|                    Option                                   |                              Description                              |
++=============================================================+=======================================================================+
+| ``-o, --output path/to/output/PDF``                         | This option specifies the output file. By default, the output PDF is  |
+|                                                             | saved in the same directory as the input ODP, and has the same        |
+|                                                             | basename as the input ODP.                                            |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-r, --resolution widthxheight``                           | If this option is present, ``odp2pdf`` first changes the resolution   |
+|                                                             | of your display to widthxheight, and then opens LibreOffice to grab   |
+|                                                             | the screenshots (so that the screenshots are all of size              |
+|                                                             | ``widthxheight``). At the end, ``odp2pdf`` changes back your          |
+|                                                             | display's resolution to whatever it was initially.                    |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-i, --interval nseconds``                                 | Default: 1. This is the interval to wait between taking successive    |
+|                                                             | screenshots (or successive presses of the Down arrow key). Sometimes, |
+|                                                             | LibreOffice takes a while to render your slide, and this option helps |
+|                                                             | you accommodate that.                                                 |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-l, --libreoffice-launch-interval nseconds``              | Default: 5. This is the interval to wait for LibreOffice to start up. |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-v, --libreoffice-version path/to/libreoffice/binary      | This option lets you choose the version of LibreOffice to use.        |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-s, --slideshow-launch-interval nseconds``                | Default: 2. This is the interval to wait for the slideshow to start.  |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-n, --no-compress``                                       | If this option is present, the generated PDF is not compressed. Note: |
+|                                                             | By default, the PDF is compressed. If you use this option, be         |
+|                                                             | prepared to get PDFs with very large file size.                       |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-f, --offset noffset``                                    | Default: 1. ``odp2pdf`` grabs screenshots until the LibreOffice       |
+|                                                             | slideshow ends. The end of the slideshow is detected when there is no |
+|                                                             | longer a fullscreen window associated with LibreOffice. At this time, |
+|                                                             | the collected screenshots are merged. But the last such collected     |
+|                                                             | screenshot is usually an image that just says 'Click to end           |
+|                                                             | slideshow'. So the last screenshot is ignored. This option lets you   |
+|                                                             | specify a different number of screenshots to ignore.                  |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-p, --prompt``                                            | If this option is present, ``odp2pdf`` prompts you (after grabbing    |
+|                                                             | all the screenshots) to enter how many screenshots to merge. You can  |
+|                                                             | look at the individual PDF files, change them if you like and so on   |
+|                                                             | before asking ``odp2pdf`` to merge them.                              |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-h, --help``                                              | Print a usage message and exit.                                       |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
 
 Examples
 ========

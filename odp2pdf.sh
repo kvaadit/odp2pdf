@@ -28,6 +28,9 @@ function usage()
     echo "   -l, --libreoffice-launch-interval nseconds (default: 5)"
     echo "       This is the interval to wait for LibreOffice to start up."
     echo ""
+    echo "   -v, --libreoffice-version path/to/libreoffice/binary"
+    echo "       This option lets you choose the version of LibreOffice to use."
+    echo ""
     echo "   -s, --slideshow-launch-interval nseconds (default: 2)"
     echo "       This is the interval to wait for the slideshow to start."
     echo ""
@@ -81,6 +84,7 @@ offset="1"
 prompt=
 lo_launch_interval="5"
 slideshow_launch_interval="2"
+lo_version="libreoffice"
 no_compress=""
 while [ $# -gt 0 ]; do
     case "$1" in
@@ -91,6 +95,7 @@ while [ $# -gt 0 ]; do
         --prompt|-prompt|-p) prompt="YES";;
         --no-compress|-no-compress|-n) no_compress="YES";;
         --libreoffice-launch-interval|-libreoffice-launch-interval|-l) shift; lo_launch_interval="$1";;
+        --libreoffice-version|-libreoffice-version|-v) shift; lo_version="$1";;
         --slideshow-launch-interval|-slideshow-launch-interval|-s) shift; slideshow_launch_interval="$1";;
         --help|-help|-h) usage; exit 0;;
         -*) usage; exit 0;;
@@ -138,7 +143,7 @@ current_screen_resolution=$(xrandr | grep \* | awk {'print $1'})
 # open the input file in libreoffice
 
 echo "Opening ""$infile"" in LibreOffice ..."
-libreoffice "$infile" 1>/dev/null 2>/dev/null &
+"$lo_version" "$infile" 1>/dev/null 2>/dev/null &
 # libreoffice_PID="$!"
 
 echo "Waiting ""$lo_launch_interval""s for LibreOffice to open ..."
