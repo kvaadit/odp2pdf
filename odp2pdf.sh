@@ -76,6 +76,9 @@ function usage()
 
 # parse arguments
 
+# requirements: xwd xdotool imagemagick (convert) jpeg2ps epstopdf
+
+
 resolution=
 interval="1"
 outfile=
@@ -192,11 +195,23 @@ do
     # record a screenshot
     xwd -root > "$idx".xwd
 
-    # convert the screenshot from XWD to PDF
-    convert "$idx".xwd "$idx".pdf
+    if [ 0 == 1 ]; then
+        # convert the screenshot from XWD to PDF
+        convert "$idx".xwd "$idx".pdf
+        rm "$idx".xwd
+    else
+        # convert the screenshot from XWD to JPG with 90% quality
+        convert "$idx".xwd -quality 90 "$idx".jpg
 
-    # remove the XWD file
-    rm "$idx".xwd
+        # use jpeg2ps to convert the jpeg into a .ps file without loss of quality
+        jpeg2ps -o "$idx".ps "$idx".jpg
+
+        # use epstopdf to convert the .ps to a .pdf without loss of quality
+        epstopdf "$idx".ps
+
+        # remove all tmp files
+        rm "$idx".{xwd,ps,jpg}
+    fi 
 
     # increment the idx for the next iteration
     idx=$((idx+1))
