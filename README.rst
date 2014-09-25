@@ -26,10 +26,11 @@ Dependencies
 
 In addition to standard things like ``mv``, ``cp``, ``awk``, ``grep``, *etc.*,
 this script needs ``xrandr``, ``xwininfo``, ``xwd``, imagemagick's ``convert``
-utility, ``xdotool``, ``pdftk``, ``pdftops``, and ``ps2pdf``. If you use a
-popular Linux distribution, your package manager probably provides all these. If
-you use an esoteric distribution that nobody has heard of, you probably know how
-to get these for said distribution.
+utility, ``xdotool``, a utility to concatenate PDFs (``pdftk`` and ``pdfunite``
+are supported), ``pdftops``, and ``ps2pdf``. If you use a popular Linux
+distribution, your package manager probably provides all these. If you use an
+esoteric distribution that nobody has heard of, you probably know how to get
+these for said distribution.
 
 Installation
 ============
@@ -63,6 +64,8 @@ Usage
 |                                                             | screenshots (or successive presses of the Down arrow key). Sometimes, |
 |                                                             | LibreOffice takes a while to render your slide, and this option helps |
 |                                                             | you accommodate that.                                                 |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-j, --pdf-joiner pdftk|pdfunite``                         | Default: pdfunite. This is the program to use for concatenating PDFs. |
 +-------------------------------------------------------------+-----------------------------------------------------------------------+
 | ``-l, --libreoffice-launch-interval nseconds``              | Default: 10. This is the interval to wait for LibreOffice to start    |
 |                                                             | up.                                                                   |

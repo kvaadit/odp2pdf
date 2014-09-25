@@ -27,6 +27,9 @@ function usage()
     echo "       a while to render your slide, and this option helps you accommodate "
     echo "       that."
     echo ""
+    echo "   -j, --pdf-joiner pdftk|pdfunite (default: pdfunite)"
+    echo "       This is the program to use for concatenating PDFs."
+    echo ""
     echo "   -l, --libreoffice-launch-interval nseconds (default: 10)"
     echo "       This is the interval to wait for LibreOffice to start up."
     echo ""
@@ -94,6 +97,7 @@ lo_launch_interval="10"
 slideshow_launch_interval="2"
 slideshow_launch_keybinding="F5"
 lo_version="libreoffice"
+pdf_joiner="pdfunite"
 no_compress=""
 while [ $# -gt 0 ]; do
     case "$1" in
@@ -103,6 +107,7 @@ while [ $# -gt 0 ]; do
         --offset|-offset|-f) shift; offset="$1";;
         --prompt|-prompt|-p) prompt="YES";;
         --no-compress|-no-compress|-n) no_compress="YES";;
+        --pdf-joiner|-pdf-joiner|-j) shift; pdf_joiner="$1";;
         --libreoffice-launch-interval|-libreoffice-launch-interval|-l) shift; lo_launch_interval="$1";;
         --libreoffice-version|-libreoffice-version|-v) shift; lo_version="$1";;
         --slideshow-launch-interval|-slideshow-launch-interval|-s) shift; slideshow_launch_interval="$1";;
@@ -231,18 +236,32 @@ else
     read -p "Enter the number of screenshots to merge: " -e num_screenshots
 fi
 
-# build the pdftk command that will merge the screenshots
+if [ "$pdf_joiner" = "pdftk" ]; then
+    # build the pdftk command that will merge the screenshots
+    cmd="pdftk"
+    idx=1
+    while [ "$idx" -le "$num_screenshots" ];
+    do
+        cmd="$cmd"" ""$idx"".pdf"
+        idx=$((idx+1))
+    done
+    cmd="$cmd"" cat output all.pdf"
+elif [ "$pdf_joiner" = "pdfunite" ]; then
+    # build the pdfunite command that will merge the screenshots
+    cmd="pdfunite"
+    idx=1
+    while [ "$idx" -le "$num_screenshots" ];
+    do
+        cmd="$cmd"" ""$idx"".pdf"
+        idx=$((idx+1))
+    done
+    cmd="$cmd"" all.pdf"
+else
+    echo "ERROR: Unrecognized PDF joiner: ""$pdf_joiner"
+    exit 0
+fi
 
-cmd="pdftk"
-idx=1
-while [ "$idx" -le "$num_screenshots" ];
-do
-    cmd="$cmd"" ""$idx"".pdf"
-    idx=$((idx+1))
-done
-cmd="$cmd"" cat output all.pdf"
-
-# run the pdftk command
+# run the pdftk/pdfunite command
 
 eval "$cmd"
 
