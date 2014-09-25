@@ -2,6 +2,8 @@
 
 function usage()
 {
+    quote='"'
+
     echo ""
     echo " Usage: ./odp2pdf.sh [options] /path/to/input/odp"
     echo ""
@@ -38,7 +40,7 @@ function usage()
     echo "       This is the keypress that is to be sent to the LibreOffice window to "
     echo "       launch the slideshow. For example, if F5 doesn't launch the slideshow "
     echo "       (possibly because you have bound the F5 key to do something else), you "
-    echo "       may be able to get around it by specifying '-k shift+F5' as an option."
+    echo "       may be able to get around it by specifying '-k ""$quote""shift+F5""$quote""' as an option."
     echo ""
     echo "   -n, --no-compress"
     echo "       If this option is present, the generated PDF is not compressed. Note: By "
