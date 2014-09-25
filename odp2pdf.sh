@@ -25,7 +25,7 @@ function usage()
     echo "       a while to render your slide, and this option helps you accommodate "
     echo "       that."
     echo ""
-    echo "   -l, --libreoffice-launch-interval nseconds (default: 5)"
+    echo "   -l, --libreoffice-launch-interval nseconds (default: 10)"
     echo "       This is the interval to wait for LibreOffice to start up."
     echo ""
     echo "   -v, --libreoffice-version path/to/libreoffice/binary"
@@ -33,6 +33,12 @@ function usage()
     echo ""
     echo "   -s, --slideshow-launch-interval nseconds (default: 2)"
     echo "       This is the interval to wait for the slideshow to start."
+    echo ""
+    echo "   -k, --slideshow-launch-keybinding keybinding (default: F5)"
+    echo "       This is the keypress that is to be sent to the LibreOffice window to "
+    echo "       launch the slideshow. For example, if F5 doesn't launch the slideshow "
+    echo "       (possibly because you have bound the F5 key to do something else), you "
+    echo "       may be able to get around it by specifying '-k shift+F5' as an option."
     echo ""
     echo "   -n, --no-compress"
     echo "       If this option is present, the generated PDF is not compressed. Note: By "
@@ -82,8 +88,9 @@ outfile=
 infile=
 offset="1"
 prompt=
-lo_launch_interval="5"
+lo_launch_interval="10"
 slideshow_launch_interval="2"
+slideshow_launch_keybinding="F5"
 lo_version="libreoffice"
 no_compress=""
 while [ $# -gt 0 ]; do
@@ -97,6 +104,7 @@ while [ $# -gt 0 ]; do
         --libreoffice-launch-interval|-libreoffice-launch-interval|-l) shift; lo_launch_interval="$1";;
         --libreoffice-version|-libreoffice-version|-v) shift; lo_version="$1";;
         --slideshow-launch-interval|-slideshow-launch-interval|-s) shift; slideshow_launch_interval="$1";;
+        --slideshow-launch-keybinding|-slideshow-launch-keybinding|-k) shift; slideshow_launch_keybinding="$1";;
         --help|-help|-h) usage; exit 0;;
         -*) usage; exit 0;;
         *) infile="$1";;
@@ -164,7 +172,7 @@ xdotool windowactivate "$(xwininfo -tree -root | grep -i libreoffice | grep "$in
 
 # start the LibreOffice slideshow
 echo "Starting the LibreOffice slideshow ..."
-xdotool key F5
+xdotool key "$slideshow_launch_keybinding"
 
 echo "Waiting ""$slideshow_launch_interval""s for the slideshow to start ..."
 sleep "$slideshow_launch_interval"

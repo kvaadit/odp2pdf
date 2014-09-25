@@ -64,11 +64,18 @@ Usage
 |                                                             | LibreOffice takes a while to render your slide, and this option helps |
 |                                                             | you accommodate that.                                                 |
 +-------------------------------------------------------------+-----------------------------------------------------------------------+
-| ``-l, --libreoffice-launch-interval nseconds``              | Default: 5. This is the interval to wait for LibreOffice to start up. |
+| ``-l, --libreoffice-launch-interval nseconds``              | Default: 10. This is the interval to wait for LibreOffice to start    |
+|                                                             | up.                                                                   |
 +-------------------------------------------------------------+-----------------------------------------------------------------------+
 | ``-v, --libreoffice-version path/to/libreoffice/binary``    | This option lets you choose the version of LibreOffice to use.        |
 +-------------------------------------------------------------+-----------------------------------------------------------------------+
 | ``-s, --slideshow-launch-interval nseconds``                | Default: 2. This is the interval to wait for the slideshow to start.  |
++-------------------------------------------------------------+-----------------------------------------------------------------------+
+| ``-k, --slideshow-launch-keybinding keybinding``            | Default: F5. This is the keypress that is to be sent to the           |
+|                                                             | LibreOffice window to launch the slideshow. For example, if F5        |
+|                                                             | doesn't launch the slideshow (possibly because you have bound the F5  |
+|                                                             | key to do something else), you may be able to get around it by        |
+|                                                             | specifying ``-k "shift+F5"`` as an option.                            |
 +-------------------------------------------------------------+-----------------------------------------------------------------------+
 | ``-n, --no-compress``                                       | If this option is present, the generated PDF is not compressed. Note: |
 |                                                             | By default, the PDF is compressed. If you use this option, be         |
