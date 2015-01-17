@@ -120,7 +120,7 @@ while [ $# -gt 0 ]; do
 done
 
 if [ "X""$outfile" = "X" ]; then
-    outfile=$(dirname $(readlink -f "$infile"))"/"$(basename -s .odp "$infile")".pdf"
+    outfile=$(dirname "$(readlink -f "$infile")")"/"$(basename -s .odp "$infile")".pdf"
 else
     outfile=$(readlink -f "$outfile")
 fi
