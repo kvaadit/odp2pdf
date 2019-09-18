@@ -94,7 +94,7 @@ infile=
 offset="1"
 prompt=
 lo_launch_interval="10"
-slideshow_launch_interval="2"
+slideshow_launch_interval="5"
 slideshow_launch_keybinding="F5"
 lo_version="libreoffice"
 pdf_joiner="pdfunite"
@@ -202,7 +202,9 @@ cd "$screenshots_dir"
 echo "Recording PDF screenshots in ""$screenshots_dir"" ..."
 
 idx=1
-while [ $(xwininfo -tree -root | grep -i libreoffice | grep -i "$current_screen_resolution" | wc -l) -ge "1" ];
+#while [ $(xwininfo -tree -root | grep -i libreoffice | grep -i "$current_screen_resolution" | wc -l) -ge "1" ];
+#while [ $(xwininfo -tree -root | grep -i libreoffice | grep -i "$infile" | wc -l) -ge "1" ];
+while [ $(xwininfo -tree -root | grep -i soffice | grep -i "$current_screen_resolution" | wc -l) -ge "1" ];
 do
     # record a screenshot
     xwd -root > "$idx".xwd
